@@ -9,7 +9,7 @@ Docker images for MOLGENIS applications.
 
 `cd docker\molgenis\2.0`
 
-`docker-compose build`
+`docker-compose up`
 
 ## Start MOLGENIS
 `docker-compose start`
