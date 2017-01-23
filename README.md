@@ -13,6 +13,8 @@ Docker images for MOLGENIS applications.
 
 ## Start MOLGENIS
 `docker-compose start`
+or in some cases
+`docker-compose up`
 
 Navigate to [http://localhost:8081/](http://localhost:8081/) in your browser.
 
