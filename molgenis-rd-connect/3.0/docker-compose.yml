@@ -1,0 +1,19 @@
+version: "3.0"
+services:
+    rd-connect-app:
+      build: ./rd-connect-app
+      ports:
+        - "8081:8080"
+      links:
+        - rd-connect-db
+      volumes:
+        - rd-connect-app-data:/opt/molgenis
+    rd-connect-db:
+      build: ../2.0/rd-connect-db
+      expose:
+        - "5432"
+      volumes:
+        - rd-connect-db-data:/var/lib/postgresql/data
+volumes:
+    rd-connect-db-data:
+    rd-connect-app-data:
