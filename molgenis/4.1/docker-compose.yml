@@ -1,0 +1,26 @@
+version: "3.0"
+services:
+    app:
+      build:
+          context: .
+          args:
+              - MOLGENIS_VERSION=4.1.0      
+      ports:
+        - "8081:8080"
+      links:
+        - db
+      volumes:
+        - app-data:/opt/molgenis
+    db:
+      image: postgres:9.6-alpine
+      environment:
+          - POSTGRES_USER=molgenis
+          - POSTGRES_PASSWORD=molgenis
+          - POSTGRES_DB=molgenis
+      expose:
+        - "5432"
+      volumes:
+        - db-data:/var/lib/postgresql/data
+volumes:
+    db-data:
+    app-data:
