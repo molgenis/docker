@@ -5,7 +5,7 @@ ARG MOLGENIS_VERSION
 # --no-cache allows users to install packages with an index that is updated and used on-the-fly and not cached locally
 # This avoids the need to use --update and remove /var/cache/apk/* when done installing packages.
 RUN apk --no-cache add openssl \	
-	&& wget -O molgenis-app-5.0.0-SNAPSHOT.war https://oss.sonatype.org/content/repositories/snapshots/org/molgenis/molgenis-app/5.0.0-SNAPSHOT/molgenis-app-5.0.0-20170630.014112-13.war
+	&& wget -O molgenis-app-5.0.0-SNAPSHOT.war https://oss.sonatype.org/content/repositories/snapshots/org/molgenis/molgenis-app/5.0.0-SNAPSHOT/molgenis-app-5.0.0-20170703.192249-17.war
 
 RUN rm -r $CATALINA_HOME/webapps/ROOT \
     && rm -r $CATALINA_HOME/webapps/docs \
