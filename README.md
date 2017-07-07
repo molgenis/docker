@@ -2,6 +2,7 @@
 Docker images for MOLGENIS applications.
 
 ## Requirements
+- [git](https://git-scm.com/downloads)
 - [Docker](https://www.docker.com/)
 
 ## Installation
