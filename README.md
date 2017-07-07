@@ -7,7 +7,7 @@ Docker images for MOLGENIS applications.
 ## Installation
 `git clone https://github.com/molgenis/docker.git`
 
-`cd docker\molgenis\2.0`
+`cd docker\molgenis\5.0`
 
 `docker-compose up`
 
