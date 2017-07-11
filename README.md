@@ -10,12 +10,14 @@ Docker images for MOLGENIS applications.
 
 `cd docker\molgenis\5.0`
 
-`docker-compose up`
-
 ## Start MOLGENIS
-`docker-compose start`
+`docker-compose up`
 
 Navigate to [http://localhost:8081/](http://localhost:8081/) in your browser.
 
 ## Stop MOLGENIS
-`docker-compose stop`
+Ctrl-C in the terminal
+
+## Remove installation
+`docker-compose down`
+`docker volume prune`
