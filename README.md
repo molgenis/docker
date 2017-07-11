@@ -19,5 +19,7 @@ Navigate to [http://localhost:8081/](http://localhost:8081/) in your browser.
 Ctrl-C in the terminal
 
 ## Remove installation
-`docker-compose down`
-`docker volume prune`
+```
+docker-compose down
+docker volume prune
+```
