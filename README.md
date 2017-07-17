@@ -23,3 +23,11 @@ Ctrl-C in the terminal
 docker-compose down
 docker volume prune
 ```
+
+## Update docker image from GitHub and start new MOLGENIS
+```
+docker-compose down
+docker volume prune
+git pull origin master
+docker-compose up --force-recreate --build
+```
