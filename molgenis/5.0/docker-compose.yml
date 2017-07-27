@@ -2,7 +2,7 @@ version: "3.0"
 services:
     app:
       build:
-          context: .
+          context: ./app
           args:
               - MOLGENIS_VERSION=5.0.1
       ports:
@@ -41,6 +41,11 @@ services:
         ports:
           - 9200:9200
           - 9300:9300
+    opencpu:
+        build:
+          context: ./opencpu
+        ports:
+          - 80:80
 volumes:
     db-data:
     app-data:
