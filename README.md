@@ -2,8 +2,15 @@
 Docker images for MOLGENIS applications.
 
 ## Requirements
-- [git](https://git-scm.com/downloads)
+- [Git](https://git-scm.com/downloads)
 - [Docker](https://www.docker.com/)
+
+### Linux
+On Linux, increase the operating system limits on mmap counts by running the following command as root:
+
+`sysctl -w vm.max_map_count=262144`
+
+To set this value permanently, update the `vm.max_map_count` setting in `/etc/sysctl.conf`.
 
 ## Installation
 `git clone https://github.com/molgenis/docker.git`
