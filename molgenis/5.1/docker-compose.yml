@@ -45,7 +45,7 @@ services:
         build:
           context: ./opencpu
         ports:
-          - 80:80
+          - 8004:8004
 volumes:
     db-data:
     app-data:
