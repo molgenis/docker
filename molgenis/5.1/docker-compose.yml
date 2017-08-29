@@ -4,7 +4,7 @@ services:
       build:
           context: ./app
           args:
-              - MOLGENIS_VERSION=5.0.1
+              - MOLGENIS_VERSION=5.1.0
       ports:
         - "8081:8080"
       links:
@@ -45,7 +45,7 @@ services:
         build:
           context: ./opencpu
         ports:
-          - 80:80
+          - 8004:8004
 volumes:
     db-data:
     app-data:
