@@ -15,7 +15,7 @@ To set this value permanently, update the `vm.max_map_count` setting in `/etc/sy
 ## Installation
 `git clone https://github.com/molgenis/docker.git`
 
-`cd docker\molgenis\5.1`
+`cd docker\molgenis\5.2`
 
 ## Start MOLGENIS
 `docker-compose up`
