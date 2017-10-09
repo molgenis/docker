@@ -4,6 +4,7 @@ Docker images for MOLGENIS applications.
 ## Requirements
 - [Git](https://git-scm.com/downloads)
 - [Docker](https://www.docker.com/)
+- Navigate to [http://localhost:8081/](http://localhost:8081/) in your browser and verify that the page cannot be found
 
 ### Linux
 On Linux, increase the operating system limits on mmap counts by running the following command as root:
