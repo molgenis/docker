@@ -1,6 +1,9 @@
 # Docker
 Docker images for MOLGENIS applications.
 
+## Usage note
+Molgenis docker images are supplied for development and test purposes only. Currently this is not the suggested setup for running molgenis in production.
+
 ## Requirements
 - [Git](https://git-scm.com/downloads)
 - [Docker](https://www.docker.com/)
