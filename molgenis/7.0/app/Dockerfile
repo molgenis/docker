@@ -1,4 +1,4 @@
-FROM tomcat:7.0-jre8-alpine
+FROM tomcat:8.5-jre8-alpine
 
 ARG MOLGENIS_VERSION
 
