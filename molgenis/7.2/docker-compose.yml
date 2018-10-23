@@ -4,7 +4,7 @@ services:
       build:
           context: ./app
           args:
-              - MOLGENIS_VERSION=7.2.0-RELEASE
+              - MOLGENIS_VERSION=7.2.4-RELEASE
       ports:
         - "8081:8080"
       links:
