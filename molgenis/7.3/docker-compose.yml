@@ -4,17 +4,7 @@ services:
       build:
           context: ./app
           args:
-              - MOLGENIS_VERSION=7.4.0-SNAPSHOT
-      environment:
-          - molgenis.home=/opt/molgenis/
-          - db_user=molgenis
-          - db_password=molgenis
-          - db_uri=jdbc:postgresql://db/molgenis
-          - admin.password=admin
-          - elasticsearch.transport.addresses=elasticsearch:9300
-          - opencpu.uri.host=opencpu
-          - opencpu.uri.port=8004
-          - python_script_executable=/usr/bin/python3
+              - MOLGENIS_VERSION=7.3.7
       ports:
         - "8081:8080"
       links:
