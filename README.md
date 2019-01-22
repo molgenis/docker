@@ -34,10 +34,25 @@ docker-compose down
 docker volume prune
 ```
 
-## Update docker image from GitHub and start new MOLGENIS
+## Start new MOLGENIS
 ```
 docker-compose down
 docker volume prune
 git pull origin master
-docker-compose up --force-recreate --build
+docker-compose up --force-recreate
+```
+
+## Override the MOLGENIS image you want to use
+Edit the ```.env``` file or export the variables in shell. 
+
+Example for .env file:
+```bash
+REGISTRY=registry.molgenis.org/molgenis/molgenis-app
+TAG=PR-8000-1
+```
+
+Example for exporting variables in shell:
+```bash
+export REGISTRY=registry.molgenis.org/molgenis/molgenis-app
+export TAG=PR-8000-1 
 ```
