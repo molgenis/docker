@@ -1,10 +1,7 @@
 version: "3.0"
 services:
     app:
-      build:
-          context: ./app
-          args:
-              - MOLGENIS_VERSION=7.2.11
+      image: ${REGISTRY}:${TAG}
       ports:
         - "8081:8080"
       links:
@@ -42,8 +39,7 @@ services:
           - 9200:9200
           - 9300:9300
     opencpu:
-        build:
-          context: ./opencpu
+        image: molgenis/opencpu:2
         ports:
           - 8004:8004
 volumes:

@@ -1,10 +1,7 @@
 version: "3.0"
 services:
     app:
-      build:
-          context: ./app
-          args:
-              - MOLGENIS_VERSION=7.5.0-SNAPSHOT
+      image: ${REGISTRY}:${TAG}
       environment:
           - molgenis.home=/opt/molgenis/
           - db_user=molgenis
@@ -52,8 +49,7 @@ services:
           - 9200:9200
           - 9300:9300
     opencpu:
-        build:
-          context: ./opencpu
+        image: molgenis/opencpu:2
         ports:
           - 8004:8004
 volumes:
