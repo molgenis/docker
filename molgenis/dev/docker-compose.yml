@@ -35,6 +35,7 @@ services:
         - "5432"
       volumes:
         - db-data:/var/lib/postgresql/data
+      command: -c 'shared_buffers=256MB' -c 'max_locks_per_transaction=1024' 
     elasticsearch:
         image: docker.elastic.co/elasticsearch/elasticsearch:5.5.3
         container_name: elasticsearch
