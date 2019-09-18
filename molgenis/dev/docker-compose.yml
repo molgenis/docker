@@ -1,8 +1,15 @@
 version: "3.0"
 services:
+    frontend:
+      image: ${FRONTEND_REGISTRY}:${FRONTEND_TAG}
+      ports:
+        - "80:80"
+      depends_on:
+        - "molgenis"
     molgenis:
-      image: ${REGISTRY}:${TAG}
+      image: ${BACKEND_REGISTRY}:${BACKEND_TAG}
       environment:
+        - environment=development
         - molgenis.home=/home/molgenis
         - opencpu.uri.host=opencpu
         - elasticsearch.transport.addresses=elasticsearch:9300
@@ -15,8 +22,8 @@ services:
         - MINIO_ACCESS_KEY=molgenis
         - MINIO_SECRET_KEY=molgenis
         - "CATALINA_OPTS=-Xmx1g -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled"
-      ports:
-        - "8081:8080"
+      expose:
+        - "8080"
       links:
         - postgres
         - elasticsearch
