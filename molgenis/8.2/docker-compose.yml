@@ -1,15 +1,15 @@
 version: "3.0"
 services:
     frontend:
-      image: ${FRONTEND_REGISTRY}:${FRONTEND_TAG}
+      image: molgenis/molgenis-frontend:8-lts
       ports:
         - "80:80"
       depends_on:
         - "molgenis"
     molgenis:
-      image: ${BACKEND_REGISTRY}:${BACKEND_TAG}
+      image: registry.molgenis.org/molgenis/molgenis-app:8.2.0
       environment:
-        - environment=development
+        - environment=production
         - molgenis.home=/home/molgenis
         - opencpu.uri.host=opencpu
         - elasticsearch.transport.addresses=elasticsearch:9300
