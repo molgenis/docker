@@ -45,7 +45,6 @@ services:
       command: -c 'shared_buffers=256MB' -c 'max_locks_per_transaction=1024' 
     elasticsearch:
         image: docker.elastic.co/elasticsearch/elasticsearch:5.5.3
-        container_name: elasticsearch
         environment:
           - cluster.name=molgenis
           - bootstrap.memory_lock=true
