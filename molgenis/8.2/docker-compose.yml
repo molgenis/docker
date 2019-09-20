@@ -24,14 +24,10 @@ services:
         - "CATALINA_OPTS=-Xmx1g -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled"
       expose:
         - "8080"
-      links:
-        - postgres
-        - elasticsearch
-        - minio
       volumes:
         - app-data:/home/molgenis
       depends_on:
-        - elasticsearch
+        - postgres
     postgres:
       image: postgres:11-alpine
       environment:

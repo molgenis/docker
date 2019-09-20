@@ -14,13 +14,10 @@ services:
           - python_script_executable=/usr/bin/python3
       ports:
         - "8081:8080"
-      links:
-        - db
-        - elasticsearch
       volumes:
         - app-data:/opt/molgenis
       depends_on:
-        - elasticsearch
+        - db
     db:
       image: postgres:9.6-alpine
       environment:
