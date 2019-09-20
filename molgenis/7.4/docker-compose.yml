@@ -33,7 +33,6 @@ services:
         - db-data:/var/lib/postgresql/data
     elasticsearch:
         image: docker.elastic.co/elasticsearch/elasticsearch:5.4.1
-        container_name: elasticsearch
         environment:
           - cluster.name=molgenis
           - bootstrap.memory_lock=true
