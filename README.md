@@ -56,3 +56,51 @@ Example for exporting variables in shell:
 export REGISTRY=registry.molgenis.org/molgenis/molgenis-app
 export TAG=PR-8000-1 
 ```
+
+## Start a docker with an existent database dump
+Add volumes to your database in docker (db section of `docker-compose` file):
+```yaml
+  - /directory/to/dbdump/on/your/machine:/docker-entrypoint-initdb.d
+```
+Uncomment the "app" section of the `docker-compose` file.
+```bash
+docker-compose up
+```
+If the data seems to be loaded, press `ctrl+c` to gracefully shut down the containers.
+
+Revert the changes you did in your `docker-compose` file. 
+
+Restart your docker using:
+```bash
+docker-compose up
+```
+*Note: this is just for restoring a database dump, the filestore is not included.
+
+## Making db dump from docker
+If you want to make a database dump from your docker to use somewhere else, add this
+line in the volumes of the db section of the `docker-compose` file:
+```yaml
+  - /directory/to/save/your/dump/in/on/your/machine:/dump
+```
+*Note: it's best if the directory you choose to configure here is empty as it will be linked to 
+your docker container
+
+Now you can start your molgenis docker the way you are used to:
+```bash
+docker-compose up
+```
+
+Determine the id of your postgres container:
+```bash
+docker ps
+```
+Copy the id of the postgres container.
+
+```bash
+docker exec -it yourCopiedId bash
+```
+Now you can create your database dump.
+```bash
+pg_dump -U molgenis > /dump/yourpgdump.sql
+```
+The data will be stored in the directory you configured in the `docker-compose` file.
