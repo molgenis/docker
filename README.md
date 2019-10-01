@@ -62,7 +62,7 @@ Add volumes to your database in docker (db section of `docker-compose` file):
 ```yaml
   - /directory/to/dbdump/on/your/machine:/docker-entrypoint-initdb.d
 ```
-Uncomment the "app" section of the `docker-compose` file.
+Comment out the "app" section of the `docker-compose` file.
 ```bash
 docker-compose up
 ```
