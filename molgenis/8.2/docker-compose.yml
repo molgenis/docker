@@ -7,7 +7,7 @@ services:
       depends_on:
         - "molgenis"
     molgenis:
-      image: registry.molgenis.org/molgenis/molgenis-app:8.2.0
+      image: molgenis/molgenis-app:8.2.1
       environment:
         - environment=production
         - molgenis.home=/home/molgenis
