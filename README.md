@@ -23,7 +23,7 @@ To set this value permanently, update the `vm.max_map_count` setting in `/etc/sy
 ## Start MOLGENIS
 `docker-compose up`
 
-Navigate to [http://localhost:8081/](http://localhost:8081/) in your browser.
+Navigate to [http://localhost:80/](http://localhost:80/) in your browser ([http://localhost:8081/](http://localhost:8081/) for versions before MOLGENIS 8.2).
 
 ## Stop MOLGENIS
 Ctrl-C in the terminal
