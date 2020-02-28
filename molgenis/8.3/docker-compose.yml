@@ -1,13 +1,13 @@
 version: "3.4"
 services:
     frontend:
-      image: molgenis/molgenis-frontend:8.3.4
+      image: molgenis/molgenis-frontend:8.3.5
       ports:
         - "80:80"
       depends_on:
         - "molgenis"
     molgenis:
-      image: molgenis/molgenis-app:8.3.4
+      image: molgenis/molgenis-app:8.3.5
       environment:
         - environment=production
         - molgenis.home=/home/molgenis
@@ -46,6 +46,8 @@ services:
           - bootstrap.memory_lock=true
           - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
           - xpack.security.enabled=false
+          - xpack.monitoring.enabled=false
+          - xpack.watcher.enabled=false
           - discovery.type=single-node
         ulimits:
           memlock:

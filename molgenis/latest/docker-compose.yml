@@ -1,8 +1,15 @@
-version: "3.0"
+version: "3.4"
 services:
+    frontend:
+      image: molgenis/molgenis-frontend:8.3-stable
+      ports:
+        - "80:80"
+      depends_on:
+        - "molgenis"
     molgenis:
-      image: molgenis/molgenis-app:8.1-latest
+      image: molgenis/molgenis-app:8.3-latest
       environment:
+        - environment=production
         - molgenis.home=/home/molgenis
         - opencpu.uri.host=opencpu
         - elasticsearch.transport.addresses=elasticsearch:9300
@@ -15,8 +22,8 @@ services:
         - MINIO_ACCESS_KEY=molgenis
         - MINIO_SECRET_KEY=molgenis
         - "CATALINA_OPTS=-Xmx1g -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled"
-      ports:
-        - "8081:8080"
+      expose:
+        - "8080"
       volumes:
         - app-data:/home/molgenis
       depends_on:
