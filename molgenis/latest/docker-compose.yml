@@ -1,13 +1,13 @@
 version: "3.4"
 services:
     frontend:
-      image: molgenis/molgenis-frontend:8.3-stable
+      image: molgenis/molgenis-frontend:8-stable
       ports:
         - "80:80"
       depends_on:
         - "molgenis"
     molgenis:
-      image: molgenis/molgenis-app:8.3-latest
+      image: molgenis/molgenis-app:8.4-stable
       environment:
         - environment=production
         - molgenis.home=/home/molgenis
