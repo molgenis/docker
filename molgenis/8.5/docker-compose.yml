@@ -1,15 +1,15 @@
 version: "3.4"
 services:
     frontend:
-      image: molgenis/molgenis-frontend:8-stable
+      image: molgenis/molgenis-frontend:8.5.1
       ports:
         - "80:80"
-      volumes:
+      volumes: 
         - ./backend.conf:/etc/nginx/proxy.d/backend.conf
       depends_on:
         - "molgenis"
     molgenis:
-      image: molgenis/molgenis-app:8.4-stable
+      image: molgenis/molgenis-app:8.5.1
       environment:
         - environment=production
         - molgenis.home=/home/molgenis
