@@ -1,7 +1,7 @@
 version: "3.4"
 services:
     frontend:
-      image: molgenis/molgenis-frontend:8.6.1
+      image: molgenis/molgenis-frontend:8.6.2
       ports:
         - "80:80"
       volumes:
@@ -9,7 +9,7 @@ services:
       depends_on:
         - "molgenis"
     molgenis:
-      image: molgenis/molgenis-app:8.6.1
+      image: molgenis/molgenis-app:8.6.2
       environment:
         - environment=production
         - molgenis.home=/home/molgenis
