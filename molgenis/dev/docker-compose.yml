@@ -23,6 +23,7 @@ services:
         - MINIO_ENDPOINT=http://minio:9000
         - MINIO_ACCESS_KEY=molgenis
         - MINIO_SECRET_KEY=molgenis
+        - MOLGENIS_MAX_FILE_MB=150
         - "CATALINA_OPTS=-Xmx1g -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled"
       expose:
         - "8080"
