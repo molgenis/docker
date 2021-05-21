@@ -10,6 +10,7 @@ services:
         - "molgenis"
     molgenis:
       image: ${BACKEND_REGISTRY}:${BACKEND_TAG}
+      user: 0:0
       environment:
         - environment=development
         - molgenis.home=/home/molgenis
@@ -25,10 +26,12 @@ services:
         - MINIO_SECRET_KEY=molgenis
         - MOLGENIS_MAX_FILE_MB=150
         - "CATALINA_OPTS=-Xmx1g -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled"
+        - audit.log.path=/home/molgenis/audit/audit.log
       expose:
         - "8080"
       volumes:
-        - app-data:/opt/molgenis
+        - app-data:/home/molgenis
+        - audit-log:/home/molgenis/audit
       depends_on:
         - postgres
     postgres:
@@ -59,8 +62,30 @@ services:
         ports:
           - 9200:9200
           - 9300:9300
+    kibana:
+      image: docker.elastic.co/kibana/kibana:5.5.3
+      profiles:
+        - audit
+      ports:
+        - 5601:5601
+    filebeat:
+      image: docker.elastic.co/beats/filebeat-oss:7.9.3
+      profiles:
+        - audit
+      ports:
+        - "5010:5010"
+        - "9600:9600"
+      environment:
+        ELASTICSEARCH_HOSTS: "http://elasticsearch:9200"
+      volumes:
+        - audit-log:/usr/share/filebeat/input/
+        - ./filebeat.yml:/usr/share/filebeat/filebeat.yml
+      depends_on:
+        - elasticsearch
     opencpu:
         image: molgenis/opencpu:opencpu-release-2019-03-20_12-07-11
+        profiles:
+          - opencpu
         ports:
           - 8004:8004
     minio:
@@ -74,6 +99,7 @@ services:
         MINIO_SECRET_KEY: molgenis
       command: server /data
 volumes:
+    audit-log:
     db-data:
     app-data:
     es-data:

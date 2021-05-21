@@ -42,6 +42,13 @@ git pull origin master
 docker-compose up --force-recreate
 ```
 
+## Start MOLGENIS with profiles
+From MOLGENIS 8.7 and up you can use profiles to turn on optional functionality. The available 
+profiles are described in the README in each version's folder.
+```
+docker-compose --profile audit --profile opencpu up
+```
+
 ## Override the MOLGENIS image you want to use
 Edit the ```.env``` file or export the variables in shell. 
 
