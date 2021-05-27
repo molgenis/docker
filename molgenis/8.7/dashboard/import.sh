@@ -8,14 +8,14 @@ done
 
 echo -e "Importing ${DASHBOARD_FILE} dashboard..."
 if ! python -c 'import sys, json; print json.load(sys.stdin)' < "${DASHBOARD_FILE}" &> /dev/null ; then
-  echo "${DASHBOARD_FILE} is not valid JSON, assuming it's an URL..."
+  echo "file is not valid JSON, assuming it's an URL..."
   TMP_FILE="$(mktemp)"
-  curl -s $(cat ${DASHBOARD_FILE}) > ${TMP_FILE}
-  curl -v  -s --connect-timeout 60 --max-time 60 -XPOST kibana:5601/api/kibana/dashboards/import?force=true -H 'kbn-xsrf:true' -H 'Content-type:application/json' -d @${TMP_FILE}
+  curl -s -L ${DASHBOARD_FILE} > ${TMP_FILE}
+  curl -s --connect-timeout 60 --max-time 60 -XPOST kibana:5601/api/kibana/dashboards/import?force=true -H 'kbn-xsrf:true' -H 'Content-type:application/json' -d @${TMP_FILE}
   rm ${TMP_FILE}
 else
   echo "Valid JSON found in ${DASHBOARD_FILE}, importing..."
-  curl -v  -s --connect-timeout 60 --max-time 60 -XPOST kibana:5601/api/kibana/dashboards/import?force=true -H 'kbn-xsrf:true' -H 'Content-type:application/json' -d @./${DASHBOARD_FILE}
+  curl -s --connect-timeout 60 --max-time 60 -XPOST kibana:5601/api/kibana/dashboards/import?force=true -H 'kbn-xsrf:true' -H 'Content-type:application/json' -d @./${DASHBOARD_FILE}
 fi
 
 if [ "$?" != "0" ]; then
