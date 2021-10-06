@@ -61,36 +61,6 @@ services:
     ports:
       - 9200:9200
       - 9300:9300
-  kibana:
-    image: docker.elastic.co/kibana/kibana:5.5.3
-    profiles:
-      - audit
-    ports:
-      - 5601:5601
-  kibana-dashboard:
-    user: 0:0
-    image: docker.elastic.co/kibana/kibana:5.5.3
-    profiles:
-      - audit
-    command:
-      - "/bin/sh"
-      - "-c"
-      - "/root/dashboard/import.sh"
-    environment:
-      DASHBOARD_FILE: https://raw.githubusercontent.com/molgenis/molgenis/master/.kibana/dashboard.json
-    volumes:
-      - ./dashboard:/root/dashboard:ro
-  filebeat:
-    image: docker.elastic.co/beats/filebeat-oss:7.9.3
-    profiles:
-      - audit
-    environment:
-      ELASTICSEARCH_HOSTS: "http://elasticsearch:9200"
-    volumes:
-      - audit-log:/usr/share/filebeat/input/
-      - ./filebeat.yml:/usr/share/filebeat/filebeat.yml
-    depends_on:
-      - elasticsearch
   opencpu:
     image: molgenis/opencpu:opencpu-release-2019-03-20_12-07-11
     profiles:
