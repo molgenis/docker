@@ -25,7 +25,7 @@ services:
         - MINIO_ACCESS_KEY=molgenis
         - MINIO_SECRET_KEY=molgenis
         - MOLGENIS_MAX_FILE_MB=150
-        - "CATALINA_OPTS=-Xmx1g -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled"
+        - "CATALINA_OPTS=-Xmx1g"
         - audit.log.path=/home/molgenis/audit/audit.log
       expose:
         - "8080"
