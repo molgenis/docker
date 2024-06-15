@@ -1,3 +1,5 @@
+This docker relates to EMX1, please use https://github.com/molgenis/molgenis-emx2
+
 # Docker
 Docker images for MOLGENIS applications.
 
