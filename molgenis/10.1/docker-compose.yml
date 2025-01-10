@@ -15,7 +15,7 @@ services:
       - environment=production
       - molgenis.home=/home/molgenis
       - opencpu.uri.host=opencpu
-      - elasticsearch.hosts=host.docker.internal:9200
+      - elasticsearch.hosts=elasticsearch:9200
       - db_uri=jdbc:postgresql://postgres/molgenis
       - db_user=molgenis
       - db_password=molgenis
