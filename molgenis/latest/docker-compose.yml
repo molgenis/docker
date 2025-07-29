@@ -9,7 +9,7 @@ services:
     depends_on:
       - "molgenis"
   molgenis:
-    image: molgenis/molgenis-app:10.2.2
+    image: molgenis/molgenis-app:latest
     user: 0:0
     environment:
       - environment=production
